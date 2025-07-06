@@ -1,7 +1,22 @@
-<html>
-    <head>
-    </head>
-    <body>
-        <h1>Yo</h1>
-    </body>
-</html>
+<head>
+  <meta charset="utf-8">
+  <title>FM20 Synth</title>
+  <link href="styles/style.css" rel="stylesheet">
+  
+  <!-- Load in EXACTLY this order -->
+  <script src="scripts/audioworklet.js"></script>
+  <script src="scripts/wam-controller.js"></script>
+  <script src="scripts/FM20-wam.js"></script>
+  <script src="scripts/FM20-awn.js"></script>
+  
+  <!-- Add this polyfill for AudioWorkletGlobalScope -->
+  <script>
+    if (typeof AudioWorkletGlobalScope === 'undefined') {
+      window.AudioWorkletGlobalScope = {
+        WAM: {},
+        registerProcessor: function() {}
+      };
+      console.warn("AudioWorkletGlobalScope polyfilled");
+    }
+  </script>
+</head>
