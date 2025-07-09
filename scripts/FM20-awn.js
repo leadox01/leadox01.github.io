@@ -14,7 +14,7 @@ class FM20Controller extends WAMController
   }
 
   static importScripts (actx) {
-    var origin = "/";
+    var origin = "https://leadox01.github.io/";
 
     return new Promise( (resolve) => {
       actx.audioWorklet.addModule(origin + "scripts/FM20-wam.js").then(() => {
